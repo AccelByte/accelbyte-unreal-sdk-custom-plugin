@@ -5,8 +5,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "JsonObjectWrapper.h"
-#include "Models/AccelByteGeneralModels.h"
 
 #include "AccelByteCustomModels.generated.h"
 
@@ -23,19 +21,27 @@ struct ACCELBYTEUE4SDKCUSTOMIZATION_API FAccelByteCustomModelRequest
 {
 	GENERATED_BODY()
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AccelByte | Category | Models | Custom ")
-		FString Payload {};
-
+	FString Name{};
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AccelByte | Category | Models | Custom ")
-		EAccelByteCustomModelOptionEnum PayloadOption {};
+	int32 Age{INDEX_NONE};
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AccelByte | Category | Models | Custom ")
+	EAccelByteCustomModelOptionEnum PayloadOption{};
 };
 
 USTRUCT(BlueprintType)
-struct ACCELBYTEUE4SDKCUSTOMIZATION_API FAccelByteCustomModelRetrieve
+struct ACCELBYTEUE4SDKCUSTOMIZATION_API FAccelByteCustomModelResponse
 {
 	GENERATED_BODY()
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AccelByte | Category | Models | Custom ")
-		FString Payload {};
-
+	FString Method{};
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AccelByte | Category | Models | Custom ")
-		EAccelByteCustomModelOptionEnum PayloadOption {};
+	FString Url{};
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AccelByte | Category | Models | Custom ")
+	TMap<FString, FString> Args{};
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AccelByte | Category | Models | Custom ")
+	TMap<FString, FString> Headers{};
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AccelByte | Category | Models | Custom ")
+	TMap<FString, FString> Form{};
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AccelByte | Category | Models | Custom ")
+	FAccelByteCustomModelRequest Json{};
 };

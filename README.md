@@ -8,14 +8,17 @@ This documentation assumes that you are already familiar with modern C++, Unreal
 
 ## Dependencies
 
-AccelByte Customization SDK is compatible with these AccelByte Unreal SDK version 6.1.0 and AccelByte Services version 3.2.0 with custom extension
+AccelByte Customization SDK is compatible with [AccelByte Unreal SDK](https://github.com/AccelByte/accelbyte-unreal-sdk-plugin) minimum version 20.5.0 
+and AccelByte Services version 3.40.0 with custom extension
+Please Check Release Notes : https://docs.accelbyte.io/product-updates/3.40.0.html
+
 
 ## Features
 
 AccelByte Customization Unreal SDK features:
 
 - Access the API from C++
-- Supported Unreal versions: 4.25 - 4.27
+- Supported Unreal versions: 4.26 - 5.2
 
 ## Architecture
 
@@ -28,6 +31,7 @@ The classes are categorized as follow:
 ## Packaging
 
 - `/Plugins` The actual plugin is located in `/Plugins/AccelByteUe4SdkCustomization`.
+- `/Content` This contains example widget blueprints and other asset.
 - `/Source` This contains C++ source code for the examples.
 - `/Documentation` This contains Doxyfile and this documentation.
   

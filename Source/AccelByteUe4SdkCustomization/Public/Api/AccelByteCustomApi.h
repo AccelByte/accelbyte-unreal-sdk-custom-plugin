@@ -15,13 +15,13 @@ namespace AccelByte
 			~CustomApi();
 
 			void ExampleSubmitFunction(
-				FAccelByteCustomModelRequest const& Param,
-				FVoidHandler const& OnSuccess,
+				FAccelByteCustomModelRequest const& Struct,
+				THandler<FAccelByteCustomModelResponse> const& OnSuccess,
 				FErrorHandler const& OnError);
 
 			void ExampleRetrieveFunction(
 				EAccelByteCustomModelOptionEnum Option,
-				THandler<FAccelByteCustomModelRetrieve> const& OnSuccess,
+				THandler<FAccelByteCustomModelResponse> const& OnSuccess,
 				FErrorHandler const& OnError);
 		};
 	}

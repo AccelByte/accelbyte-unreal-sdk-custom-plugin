@@ -11,20 +11,20 @@ namespace AccelByte
 		
 		CustomApi::~CustomApi() {}
 
-		void CustomApi::ExampleSubmitFunction(FAccelByteCustomModelRequest const& Param, FVoidHandler const& OnSuccess, FErrorHandler const& OnError)
+		void CustomApi::ExampleSubmitFunction(FAccelByteCustomModelRequest const& Struct, THandler<FAccelByteCustomModelResponse> const& OnSuccess, FErrorHandler const& OnError)
 		{
 			FReport::Log(FString(__FUNCTION__));
-
+			
 			FString Url = FString::Printf(TEXT("%s/public/namespace/%s/<submitEndpointUrl>"), *CustomizationSettings::Get().CustomizationUrlExample, *CredentialsRef.GetNamespace());
 			FString Verb = TEXT("POST"); // Verb : [ POST, GET, PUT, PATCH, DELETE ]
 
-			HttpClient.ApiRequest(Verb, Url, {}, Param, OnSuccess, OnError);
+			HttpClient.ApiRequest(Verb, Url, {}, Struct, OnSuccess, OnError);
 		}
 
-		void CustomApi::ExampleRetrieveFunction(EAccelByteCustomModelOptionEnum Option, THandler<FAccelByteCustomModelRetrieve> const& OnSuccess, FErrorHandler const& OnError)
+		void CustomApi::ExampleRetrieveFunction(EAccelByteCustomModelOptionEnum Option, THandler<FAccelByteCustomModelResponse> const& OnSuccess, FErrorHandler const& OnError)
 		{
 			FReport::Log(FString(__FUNCTION__));
-
+			
 			FString Url = FString::Printf(TEXT("%s/public/namespace/%s/<retrieveEndpointUrl>"), *CustomizationSettings::Get().CustomizationUrlExample, *CredentialsRef.GetNamespace());
 			FString Verb = TEXT("GET"); // Verb : [ POST, GET, PUT, PATCH, DELETE ]
 			

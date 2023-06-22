@@ -7,8 +7,11 @@
 #include "Core/AccelByteRegistry.h"
 #include "Core/AccelByteCustomizationSettings.h"
 #include "AccelByteUe4SdkModule.h"
+
+#if WITH_EDITOR
 #include "ISettingsModule.h"
 #include "ISettingsSection.h"
+#endif
 
 DEFINE_LOG_CATEGORY(LogAccelByteCustomization);
 
@@ -69,7 +72,7 @@ bool FAccelByteUe4SdkCustomizationModule::LoadSettingsFromConfigUObject()
 	FString CustomizationUrl;
 	GConfig->GetString(*ConfigPath, TEXT("CustomizationUrlExample"), CustomizationUrl, GEngineIni);
 	AccelByte::CustomizationSettings::Get().CustomizationUrlExample =
-		FString::Printf(TEXT("%s/%s"), *AccelByte::FRegistry::Settings.BaseUrl, CustomizationUrl.IsEmpty() ? TEXT("DefaultValue") : *CustomizationUrl);
+		FString::Printf(TEXT("%s"), CustomizationUrl.IsEmpty() ? *FString::Printf(TEXT("%s/%s"), *AccelByte::FRegistry::Settings.BaseUrl, TEXT("customService")) : *CustomizationUrl);
 
 	return true;
 }
